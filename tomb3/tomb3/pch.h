@@ -29,5 +29,6 @@
 #include <mmeapi.h>
 #include <ctime>
 #include <MSAcm.h>
+#include <xinput.h>
 
 #endif //PCH_H

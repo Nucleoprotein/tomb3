@@ -2,6 +2,7 @@
 #include "input.h"
 #include "dd.h"
 #include "di.h"
+#include "xi.h"
 #include "dxshell.h"
 #include "display.h"
 #include "../game/invfunc.h"
@@ -139,6 +140,8 @@ long S_UpdateInput()
 	DI_ReadKeyboard(keymap);
 	linput = 0;
 
+	XI_Read(&linput);
+
 	if (Key(0))
 		linput |= IN_FORWARD;
 
@@ -178,16 +181,25 @@ long S_UpdateInput()
 	if (Key(12))
 		linput |= IN_ROLL;
 
-	if (Key(14) && !pictureFading)
+	if (Key(13))
+		linput |= IN_OPTION;
+
+	if (Key(14))
+		linput |= IN_PAUSE;
+
+	if (linput & IN_PAUSE && !pictureFading)
 	{
 		if (!pause_debounce)
 		{
 			pause_debounce = 1;
 			linput |= IN_PAUSE;
 		}
+		else
+			linput = linput & ~IN_PAUSE;
 	}
 	else
 		pause_debounce = 0;
+	
 
 	if (linput & IN_WALK && !(linput & (IN_FORWARD | IN_BACK)))
 	{
@@ -217,8 +229,10 @@ long S_UpdateInput()
 		distanceFogValue = farz - 0x2000;
 	}
 
-	if (Key(13) && camera.type != CINEMATIC_CAMERA && !pictureFading)
+	if (linput & IN_OPTION && camera.type != CINEMATIC_CAMERA && !pictureFading)
 		linput |= IN_OPTION;
+	else
+		linput = linput & ~IN_OPTION;
 
 	if (linput & IN_FORWARD && linput & IN_BACK)
 		linput |= IN_ROLL;

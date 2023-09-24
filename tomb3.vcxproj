@@ -30,26 +30,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -125,7 +125,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalOptions>/SECTION:.text,RWE /pdbaltpath:%_PDB% /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>dxguid.lib;ddraw.lib;Winmm.lib;dinput8.lib;Msacm32.lib;dsound.lib;D3d9.lib;discord-rpc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dxguid.lib;ddraw.lib;Winmm.lib;dinput8.lib;Msacm32.lib;dsound.lib;D3d9.lib;discord-rpc.lib;XInput1_3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)tomb3\newstuff\libs\discord\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -304,6 +304,7 @@
     <ClInclude Include="tomb3\specific\transform.h" />
     <ClInclude Include="tomb3\specific\utils.h" />
     <ClInclude Include="tomb3\specific\winmain.h" />
+    <ClInclude Include="tomb3\specific\xi.h" />
     <ClInclude Include="tomb3\tomb3\pch.h" />
     <ClInclude Include="tomb3\newstuff\registry.h" />
     <ClInclude Include="tomb3\tomb3\tomb3.h" />
@@ -444,6 +445,7 @@
     <ClCompile Include="tomb3\specific\transform.cpp" />
     <ClCompile Include="tomb3\specific\utils.cpp" />
     <ClCompile Include="tomb3\specific\winmain.cpp" />
+    <ClCompile Include="tomb3\specific\xi.cpp" />
     <ClCompile Include="tomb3\tomb3\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
